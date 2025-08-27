@@ -1,6 +1,7 @@
-import { printHello } from "../../test-package/src/main"
+import { printHello } from "@ttools/test-package"
 
 
 console.log("starting...")
 
-printHello()
+const x = printHello()
+console.log(x)

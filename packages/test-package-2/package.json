@@ -1,15 +1,21 @@
 {
   "name": "@ttools/test-package-2",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+
+  "main": "main.ts",
   "scripts": {
     "dev": "tsx src/main.ts"
   },
-
   "dependencies": {
     "@ttools/test-package": "workspace:*"
   },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.5"
+  },
+
+
+  "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",

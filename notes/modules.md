@@ -1,5 +1,21 @@
 Obviously subject to change with real world experience
 
+State Management Module
+    bridge between the end users app, and the encrypted communication module
+    converts between state and change + snapshot messages 
+
+    interprets received messages from communication-module -> state
+    interprets change of state (however it exposes that to the application) -> change messages
+    also handles caching / sync-engining state locally
+    
+
+    How to connect to application: can have multiple versions
+    - one that is yjs provider
+    - one that is redux clone
+    - one that tries to back the local state into a local file
+
+    easiest to start with is yjs provider
+
 
 Encrypted Communication Module:
     Receives:

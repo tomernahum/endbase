@@ -10,6 +10,20 @@ importers:
 
   packages/communication-module/client: {}
 
+  packages/endbase:
+    dependencies:
+      '@ttools/communication-module-client':
+        specifier: workspace:*
+        version: link:../communication-module/client
+      '@ttools/endbase-key-management-module-client':
+        specifier: workspace:*
+        version: link:../key-management-module/client
+      '@ttools/endbase-state-management-module':
+        specifier: workspace:*
+        version: link:../state-management-module
+
+  packages/key-management-module/client: {}
+
   packages/state-management-module:
     dependencies:
       '@ttools/communication-module-client':

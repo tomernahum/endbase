@@ -5,8 +5,8 @@ import { createCommunicationModuleClient } from "@ttools/communication-module-cl
 
 
 export function createStateManagementModule(
+    props: {},
     communication: ReturnType<typeof createCommunicationModuleClient>,
-    props: {}
 ) {
 
 }

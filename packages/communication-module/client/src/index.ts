@@ -16,19 +16,23 @@ export function createCommunicationModuleClient<R extends string>(props: {
     // },
 }) {
     return {
-        connect: () => {},
-        disconnect: () => {},
+        connect: async () => {},
+        disconnect: async () => {},
         onConnected: (callback: (isReconnection: boolean) => void) => {},
         onDisconnected: (callback: (unexpected: boolean) => void) => {},
         
         
-        addUpdates: (updates: Update[]) => {},
+        addUpdates: (updates: Update[]) => {
+            console.log("addUpdates", updates)
+        },
 
         /** todo: finalize how we should really indicate what updates are or are not in the snapshot */
         applySnapshot: async (
             updates: Update[],
             lastTimeIdToReplace: number
-        ) => {},
+        ) => {
+            console.log("applySnapshot", updates, lastTimeIdToReplace)
+        },
 
         /** todo: finalize timeId and stuff like that... */
         subscribeToRemoteUpdates: (

@@ -1,5 +1,5 @@
 packages: 
   # looks in these directories for packages which are delineated by a package.json
   - "packages/**/*"
-  # - "apps/*"
+  - "apps/**/*"
   

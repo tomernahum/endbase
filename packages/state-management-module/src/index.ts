@@ -18,4 +18,4 @@ export function createSimpleYjsProvider(
     return
 }
 
-// createTextDocumentProvider (moved to separate file)
+export {createTextDocumentProvider} from "./textDocProvider"

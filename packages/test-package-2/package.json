@@ -1,0 +1,17 @@
+{
+  "name": "@ttools/test-package-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx src/main.ts"
+  },
+
+  "dependencies": {
+    "@ttools/test-package": "workspace:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.9.0"
+}

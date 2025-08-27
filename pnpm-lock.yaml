@@ -1,0 +1,17 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .: {}
+
+  packages/test-package: {}
+
+  packages/test-package-2:
+    dependencies:
+      '@ttools/test-package':
+        specifier: workspace:*
+        version: link:../test-package

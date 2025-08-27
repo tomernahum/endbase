@@ -13,6 +13,7 @@ function saveToLocalFile(state: string) {
 export async function createTextDocumentProvider(
     props: {},
     communication: ReturnType<typeof createCommunicationModuleClient>,
+    // localAtRestEncryptionKeys
 ) {
     await communication.connect()
 

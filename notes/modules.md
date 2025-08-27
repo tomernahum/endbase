@@ -1,5 +1,23 @@
+Obviously subject to change with real world experience
 
 
+Encrypted Communication Module:
+    Receives:
+        from key distribution module: initial keys, updated/rotated keys
+        from client-side state management module: 
+            - plaintext change messages
+            - plaintext snapshot messages
+            - requests to subscribe to new change messages
+            - requests to get latest snapshot message
+    Does:
+        relays messages between the encrypted server and the client-side state management module,
+        - connects to the server, client module
+        - encrypts/decrypts messages to/from server
+            plaintext -> Ed25519 -> 10* padding -> AES-GCM -> encryption-scheme-version-stamper -> base64
+    Sends:
+        to server: encrypted change+snapshot messages
+        to client-side state management module: decrypted change+snapshot messages
+        
 
 
 

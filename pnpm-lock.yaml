@@ -10,6 +10,12 @@ importers:
 
   packages/communication-module/client: {}
 
+  packages/state-management-module:
+    dependencies:
+      '@ttools/communication-module-client':
+        specifier: workspace:*
+        version: link:../communication-module/client
+
   packages/test-package: {}
 
   packages/test-package-2:

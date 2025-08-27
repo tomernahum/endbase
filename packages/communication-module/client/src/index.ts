@@ -7,7 +7,7 @@ type VerifyingKeysMap<ValidRole extends string> = Record<ValidRole, {
     verifyingKey: CryptoKey;
     validOldVerifyingKeys: CryptoKey[];
 }>;
-export type CryptoConfig<ValidRole extends string> = {
+export type CryptoConfig<ValidRole extends string> = "dummy" | {
     paddingLengthCheckpoints?: number[];
     mainEncryptionKey: CryptoKey;
     validOldEncryptionKeys?: CryptoKey[];
@@ -26,11 +26,11 @@ export type CryptoConfig<ValidRole extends string> = {
     }
 );
 
-// this is all uncertain......
+// this is all uncertain... but based on a previous draft
 export function createCommunicationModuleClient<R extends string>(props: {
     docId: string,
     cryptoConfig: CryptoConfig<R>,
-    //maybe: timeBatchingConfig
+    // maybe: timeBatchingConfig,
     // serverConfig: {
     //     baseUrl: string,
     // },
@@ -58,7 +58,11 @@ export function createCommunicationModuleClient<R extends string>(props: {
         /** loads the full document from the server. Will be made up of snapshot + updates (snapshot already made up of updates) */
         getDocState: async () => {
             return [] as Update[]
-        }
+        },
+
+
+        setCryptoConfig: (cryptoConfig: CryptoConfig<R>) => {},
     }
 }
 
+// could maybe add a function to do an update to two different documents but transitionally. But do not need that yet

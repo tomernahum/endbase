@@ -23,3 +23,5 @@ function createCommunicationModuleClientWrapped(docId:string) {
 }
 
 // there might be a better way of course
+// will look into it tomorrow now i'm tired will read https://claude.ai/chat/fe60d5fa-c0fd-4e7e-bdd7-4beee91985b9
+// ok maybe we could just pass in key provider functions object (ie getCryptoConfig function or subscribeToCryptoConfigChanges function) instead of a static object

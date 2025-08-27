@@ -17,6 +17,8 @@ State Management Module
     easiest to start with is yjs provider
 
 
+
+
 Encrypted Communication Module:
     Receives:
         from key distribution module: initial keys, updated/rotated keys
@@ -33,7 +35,14 @@ Encrypted Communication Module:
     Sends:
         to server: encrypted change+snapshot messages
         to client-side state management module: decrypted change+snapshot messages
-        
+
+    Possible Submodules:
+        - crypto (just the part that encrypts/decrypts messages)
+        The Server (major)
+            Naive solution: 
+                sqlite + socketio
+            Other solutions:
+                - maybe look into ipfs for storage?
 
 
 

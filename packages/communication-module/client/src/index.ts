@@ -2,7 +2,39 @@
 
 type Update = Uint8Array
 
-export function createCommunicationModuleClient(docId: string) {
+// placeholder
+type VerifyingKeysMap<ValidRole extends string> = Record<ValidRole, {
+    verifyingKey: CryptoKey;
+    validOldVerifyingKeys: CryptoKey[];
+}>;
+export type CryptoConfig<ValidRole extends string> = {
+    paddingLengthCheckpoints?: number[];
+    mainEncryptionKey: CryptoKey;
+    validOldEncryptionKeys?: CryptoKey[];
+} & (
+    {
+        signingMode: "reader-skip-verifying";
+    } | {
+        signingMode: "reader";
+        verifyingKeys: VerifyingKeysMap<ValidRole>;
+    } | {
+        signingMode: "writer";
+        verifyingKeys: VerifyingKeysMap<ValidRole>;
+
+        identity: ValidRole;
+        signingKey: CryptoKey;
+    }
+);
+
+// this is all uncertain......
+export function createCommunicationModuleClient<R extends string>(props: {
+    docId: string,
+    cryptoConfig: CryptoConfig<R>,
+    //maybe: timeBatchingConfig
+    // serverConfig: {
+    //     baseUrl: string,
+    // },
+}) {
     return {
         connect: () => {},
         disconnect: () => {},
@@ -20,7 +52,7 @@ export function createCommunicationModuleClient(docId: string) {
 
         /** todo: finalize timeId and stuff like that... */
         subscribeToRemoteUpdates: (
-            callback: (updates: Update[], timeId: number) => void
+            callback: (updates: Update[], updaterRole: R, timeId: number) => void
         ) => {},
 
         /** loads the full document from the server. Will be made up of snapshot + updates (snapshot already made up of updates) */

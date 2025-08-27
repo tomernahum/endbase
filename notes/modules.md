@@ -1,5 +1,10 @@
 Obviously subject to change with real world experience
 
+
+Top Level Endbase Client Module
+    the top level endbase client that the application code imports. thing it wraps most is state-management-module, which it factorily constructs with correct dependencies injected (those being key managment / crypto and communication modules)
+
+
 State Management Module
     bridge between the end users app, and the encrypted communication module
     converts between state and change + snapshot messages 
@@ -47,7 +52,7 @@ Encrypted Communication Module:
 
 
 
-Key Distribution Module
+Key Distribution Module / Key Management Module
     Naive solution to start with: 
         send appropriate keys out of band, or through TOFU public key
         , never rotate them
@@ -58,7 +63,10 @@ Key Distribution Module
         regular key rotation (look into x3dh, noise, etc)
         can try to tie rotation events with events like snapshots
 
+
+
 Code Verification/Transparency Module
+    separate to everything, just verifies code so that you don't get server attack
     Naive solution to start with: 
         Trust me bro guarantee
     Other solutions:
